@@ -24,17 +24,19 @@ namespace qtcl
         public static void ShowHelp()
         {
             string[] helpText = [
-            "Possible Arguments:",
+                "qtcl v1.0 (Beta 1)",
+                "",
+                "Possible Arguments:",
                 "<inputFilepath>\n\tRun the parser and intrepreter from the specified inputFilepath.",
                 "<inputFilepath> <outputFilepath>\n\tRun the parser and intrepreter on the specified inputFilepath and saves the results to the outputFilepath.",
-                "--help\n-h\n\tShows this arguments list."
+                "--help\n-h\n\tShows this screen."
             ];
             foreach (string line in helpText)
             {
                 QTCLH.CLI.Print(line + "\n");
             }
         }
-            public static class CLI {
+        public static class CLI {
             public static void Print(string message)
             {
                 Console.WriteLine(message);
