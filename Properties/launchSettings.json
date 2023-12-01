@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "qtcl": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\alex\\.qtcl\\demos\\AllCommandsOperatorsDemo.txt"
+    }
+  }
+}
