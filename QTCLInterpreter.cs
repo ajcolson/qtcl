@@ -18,18 +18,18 @@
                     bool HasOperator = QTCLStandardLibrary.QTCLOperatorRegex().IsMatch(commandWords[i].Substring(0, 1));
                     if ( HasOperator )
                     {
-                        var foundOperator = QTCLStandardLibrary.Operators.Where((c => c.OperatorWord == commandWords[i].Substring(0,1)));
-                        bool remainderIsValidTextOnly = QTCLStandardLibrary.QTCLCommandWordRegex().IsMatch(commandWords[i].Substring(1));
-                        bool HasValidOperatorString = foundOperator.Count() > 0 && remainderIsValidTextOnly;
+                        var foundOperator = QTCLStandardLibrary.Operators.Where((c => c.OperatorWord == commandWords[i][..1]));
+                        bool remainderIsValidTextOnly = QTCLStandardLibrary.QTCLCommandWordRegex().IsMatch(commandWords[i][1..]);
+                        bool HasValidOperatorString = foundOperator.Any() && remainderIsValidTextOnly;
                         if ( HasValidOperatorString )
                         {
-                            buffer += foundOperator.First().Execute(commandWords[i].Substring(1));
+                            buffer += foundOperator.First().Execute(commandWords[i][1..]);
                         }
                     }
                     else
                     {
                         var foundCommand = QTCLStandardLibrary.Commands.Where((c => c.CommandWord == commandWords[i]));
-                        if (foundCommand.Count() > 0)
+                        if (foundCommand.Any())
                         {
                             buffer += foundCommand.First().Execute();
                         }

@@ -5,7 +5,7 @@
         QTCLInterpreter interpreter;
         public QTCLFileParser()
         {
-            interpreter = new QTCLInterpreter();
+            interpreter = new();
         }
         private string parse(string input)
         {

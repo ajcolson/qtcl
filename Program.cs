@@ -4,11 +4,11 @@ using System.Text.Json;
 internal class Program
 {
 
-    public static QTCLConfig CURRENT_CONFIG { get; set; }
+    public static QTCLConfig? CURRENT_CONFIG { get; set; }
     private static void Main(string[] args)
     {
         QTCLH.CheckForAppDir();
-        QTCLFileParser parser = new QTCLFileParser();
+        QTCLFileParser parser = new();
         CURRENT_CONFIG = QTCLConfigLoader.Load();
         if (args.Length == 0)
         {

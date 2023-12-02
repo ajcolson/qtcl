@@ -161,7 +161,7 @@ namespace qtcl
             new("@", ((input) =>
             {
                 string ret = "";
-                string? fName = Program.CURRENT_CONFIG.RandomFileTextLookupOperator.Directory + input + Program.CURRENT_CONFIG.RandomFileTextLookupOperator.FileType;
+                string? fName = $"{Program.CURRENT_CONFIG.RandomFileTextLookupOperator.Directory}{input}{Program.CURRENT_CONFIG.RandomFileTextLookupOperator.FileType}";
                 
                 if (QTCLH.FILE.Exists(fName))
                 {
