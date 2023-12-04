@@ -11,7 +11,7 @@ namespace qtcl
         {
             "RandomFileTextLookupOperator":
         	{
-        		"Directory": "{{QTCLH.APP_DIR}}data\random-text-files\",
+            	"Directory": "{{QTCLH.APP_DIR}}data\random-text-files\",
             	"FileType": ".txt"
         	}
         }

@@ -166,9 +166,20 @@ namespace qtcl
                 if (QTCLH.FILE.Exists(fName))
                 {
                     string[] fileContents = QTCLH.FILE.GetAllContent(fName).Split('\n');
-                    Random r = new();
-                    int ind = r.Next(0, fileContents.Length);
-                    ret = fileContents[ind];
+                    List<string> lineOptions = [];
+                    
+                    //check for return carriages. Don't include the as a possible option.
+                    for (int i = 0; i < fileContents.Length; i++)
+                    {
+                        if (fileContents[i] != "\r")
+                            lineOptions.Add(fileContents[i]);
+                    }
+                    if (lineOptions.Count > 0)
+                    {
+                        Random r = new();
+                        int ind = r.Next(0, lineOptions.Count);
+                        ret = lineOptions[ind];
+                    }
                 } else
                 {
                     QTCLH.CLI.PrintWarning($"Unable to parse the requsted text inclusion for the input named \"{input}\". A blank value will be inserted instead.\nPlease check the following file: \"{fName}\"");

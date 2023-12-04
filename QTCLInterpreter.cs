@@ -15,7 +15,7 @@
                 string[] commandWords = commandString.Split(' ');
                 for (int i = 0; i < commandWords.Length; i++)
                 {
-                    bool HasOperator = QTCLStandardLibrary.QTCLOperatorRegex().IsMatch(commandWords[i].Substring(0, 1));
+                    bool HasOperator = QTCLStandardLibrary.QTCLOperatorRegex().IsMatch(commandWords[i][..1]);
                     if ( HasOperator )
                     {
                         var foundOperator = QTCLStandardLibrary.Operators.Where((c => c.OperatorWord == commandWords[i][..1]));

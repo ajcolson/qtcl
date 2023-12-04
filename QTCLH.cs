@@ -24,7 +24,7 @@ namespace qtcl
         public static void ShowHelp()
         {
             string[] helpText = [
-                "qtcl v1.0 (Beta 1)",
+                "qtcl v1.0 (Beta 2)",
                 "",
                 "Possible Arguments:",
                 "<inputFilepath>\n\tRun the parser and intrepreter from the specified inputFilepath.",
