@@ -7,9 +7,11 @@ internal class Program
     public static QTCLConfig? CURRENT_CONFIG { get; set; }
     private static void Main(string[] args)
     {
-        QTCLH.CheckForAppDir();
-        QTCLFileParser parser = new();
+        QTCLH.CheckForMainAppDir();
         CURRENT_CONFIG = QTCLConfigLoader.Load();
+        List<string> configFeatureDirs = [CURRENT_CONFIG.RandomFileTextLookupOperator.Directory];
+        QTCLH.CheckForFeatureDirs(configFeatureDirs);
+        QTCLFileParser parser = new();        
         if (args.Length == 0)
         {
             QTCLH.ShowHelp();

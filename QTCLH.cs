@@ -11,13 +11,27 @@ namespace qtcl
     {
         public static string APP_DIR = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.qtcl\\";
 
-        public static void CheckForAppDir()
+        public static void CheckForMainAppDir()
         {
             if (!QTCLH.DIR.Exists(QTCLH.APP_DIR))
             {
                 QTCLH.DIR.Create(QTCLH.APP_DIR);
-                QTCLH.CLI.PrintInfo($"The default configuration directory was not found. The directory \"{QTCLH.APP_DIR}\" was created.");
-                QTCLH.CLI.PrintWarning("Some features will not work correctly unless configured correctly in this directory. Please check the user manual for more information.");
+            }
+        }
+
+        public static void CheckForFeatureDirs(List<string> featureDirs) {
+            List<string> dirs = [
+                QTCLH.APP_DIR + "data\\",
+                QTCLH.APP_DIR + "data\\random-text-files\\",
+                QTCLH.APP_DIR + "data\\templates\\"
+            ];
+            dirs.AddRange(featureDirs);
+            foreach (string dir in dirs)
+            {
+                if (dir != null && !QTCLH.DIR.Exists(dir))
+                {
+                    QTCLH.DIR.Create(dir);
+                }
             }
         }
 
