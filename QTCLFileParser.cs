@@ -79,7 +79,7 @@
                 {
                     string fileContents = QTCLH.FILE.GetAllContent(filePath);
                     ret = parse(fileContents);
-                    QTCLH.CLI.PrintInfo("Parsing completed!\n");
+                    QTCLH.CLI.PrintInfo("Parsing completed!");
                 }
                 else
                 {
