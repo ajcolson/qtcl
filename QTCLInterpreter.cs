@@ -10,7 +10,7 @@
         public string Interpret(string commandString)
         {
             string buffer = "";
-            if (commandString != null)
+            if (commandString != null && commandString != "")
             {
                 string[] commandWords = commandString.Split(' ');
                 for (int i = 0; i < commandWords.Length; i++)
