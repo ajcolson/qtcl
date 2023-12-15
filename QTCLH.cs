@@ -10,6 +10,7 @@ namespace qtcl
     internal static class QTCLH
     {
         public static string APP_DIR = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\.qtcl\\";
+        public static bool USE_LEGACY_V1B3 = false;
 
         public static void CheckForMainAppDir()
         {
@@ -43,6 +44,8 @@ namespace qtcl
                 "Possible Arguments:",
                 "<inputFilepath>\n\tRun the parser and intrepreter from the specified inputFilepath.",
                 "<inputFilepath> <outputFilepath>\n\tRun the parser and intrepreter on the specified inputFilepath and saves the results to the outputFilepath.",
+                "-L_XXX <inputFilepath>\n\tRun the parser and intrepreter in legacy mode using the version specified by XXX from the specified inputFilepath.",
+                "-L_XXX <inputFilepath> <outputFilepath>\n\tRun the parser and intrepreter in legacy mode using the version specified by XXX from the specified inputFilepath and saves the results to the outputFilepath.",
                 "--help\n-h\n\tShows this screen."
             ];
             foreach (string line in helpText)

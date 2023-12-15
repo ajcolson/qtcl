@@ -30,7 +30,15 @@
                         break;
                     case "}":
                         CommandStringStarted = false;
-                        string output = interpreter.Interpret(CommandStringBuffer);
+                        string output;
+                        if (QTCLH.USE_LEGACY_V1B3)
+                        {
+                             output = interpreter.Interpret_v1b3(CommandStringBuffer);
+                        } else
+                        {
+                            output = "";
+                        }
+                        
                         ParsedContentBuffer += output;
                         CommandStringBuffer = "";
                         break;

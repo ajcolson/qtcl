@@ -2,7 +2,7 @@
 
 namespace qtcl
 {
-    internal static partial class QTCLStandardLibrary
+    internal static partial class QTCLStandardLibrary_v1b3
     {
         
 

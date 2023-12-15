@@ -7,7 +7,7 @@
 
         }
 
-        public string Interpret(string commandString)
+        public string Interpret_v1b3(string commandString)
         {
             string buffer = "";
             if (commandString != null && commandString != "")
@@ -15,11 +15,11 @@
                 string[] commandWords = commandString.Split(' ');
                 for (int i = 0; i < commandWords.Length; i++)
                 {
-                    bool HasOperator = QTCLStandardLibrary.QTCLOperatorRegex().IsMatch(commandWords[i][..1]);
+                    bool HasOperator = QTCLStandardLibrary_v1b3.QTCLOperatorRegex().IsMatch(commandWords[i][..1]);
                     if ( HasOperator )
                     {
-                        var foundOperator = QTCLStandardLibrary.Operators.Where((c => c.OperatorWord == commandWords[i][..1]));
-                        bool remainderIsValidTextOnly = QTCLStandardLibrary.QTCLCommandWordRegex().IsMatch(commandWords[i][1..]);
+                        var foundOperator = QTCLStandardLibrary_v1b3.Operators.Where((c => c.OperatorWord == commandWords[i][..1]));
+                        bool remainderIsValidTextOnly = QTCLStandardLibrary_v1b3.QTCLCommandWordRegex().IsMatch(commandWords[i][1..]);
                         bool HasValidOperatorString = foundOperator.Any() && remainderIsValidTextOnly;
                         if ( HasValidOperatorString )
                         {
@@ -28,7 +28,7 @@
                     }
                     else
                     {
-                        var foundCommand = QTCLStandardLibrary.Commands.Where((c => c.CommandWord == commandWords[i]));
+                        var foundCommand = QTCLStandardLibrary_v1b3.Commands.Where((c => c.CommandWord == commandWords[i]));
                         if (foundCommand.Any())
                         {
                             buffer += foundCommand.First().Execute();

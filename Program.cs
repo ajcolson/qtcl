@@ -33,7 +33,32 @@ internal class Program
         }
         else if (args.Length == 2)
         {
-            parser.ParseToFile(args[0], args[1]);
+            switch (args[0])
+            {
+                case "-L_V1B3":
+                case "-L_v1b3":
+                    QTCLH.USE_LEGACY_V1B3 = true;
+                    parser.ParseToCLI(args[1]);
+                    break;
+                default:
+                    parser.ParseToFile(args[0], args[1]);
+                    break;
+            }
+            
+        }
+        else if (args.Length == 3)
+        {
+            switch (args[0])
+            {
+                case "-L_V1B3":
+                case "-L_v1b3":
+                    QTCLH.USE_LEGACY_V1B3 = true;
+                    parser.ParseToFile(args[1], args[2]);
+                    break;
+
+            }
+
+            
         }
     }
 }
